@@ -8,11 +8,16 @@ function setup(){
 }
 
 function balloon(t){
+  push();
   let w = textWidth(t);
   let h = textAscent() + textDescent();
-  let p = 2;
-  fill(0);
-  rect(0, 0, w + p * 2, h + p * 2);
-  fill(255);
-  text(t, p, h + p);
+  let p = 50;
+  noStroke();
+  fill(150);
+  rect(50, 50, w + p * 2, h + p * 2);
+  fill(0,0,255);
+  text(t, p + 50, h + p + 50);
+  fill(150);
+  triangle(w+p*2+50, h+p*2+50, w+p*2+50, h+p*2+75, w+p*2-25, h+p*2+50);
+  pop();
 }
