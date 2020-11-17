@@ -17,13 +17,15 @@ function calendar(y, m){
   let dow = dayOfWeek(y, m, 1);
   for(let d = 1; d <= daysInMonth(y, m); d++){
     // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
-    
-    daysInYear(y);
-    daysOfYear(y,m,d);
-    dayOfWeek(y,m,d);
-    dayOfWeekAsString(dow);
-
-  }
+    pop();
+    let x = dayOfWeek(y, m, d);
+    let y = 0
+    rect(x*20, y*20, 20, 20);
+    if(x=6){
+      y += 1;
+      }
+    push();
+    }
 }
 
 function isLeapYear(y){
@@ -32,15 +34,8 @@ function isLeapYear(y){
 
 function daysInYear(y){
   // BLANK[1]
-  if((y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0)){
-    push();
-    d=366
-    pop();
-  }
-  else{
-    push();
-    d=365
-  }
+    return isLeapYear(y) ? 366 : 365;
+}
 
 
 function daysInMonth(y, m){
@@ -64,12 +59,15 @@ function dayOfYear(y, m, d){
 }
 
 function dayOfWeek(y, m, d){
-  // BLANK[2]
-
+  let b = dayOfYear(y,m,d);
+  let c = Math.floor((y-2000)/4);
+  let e = ((c+1)*2+(y-2001-c))%7; //
+  let f = (c+e+5)%7;
+  return f;
 
 }
 
 function dayOfWeekAsString(dow){
-  const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
+  const a = ["火", "水", "木", "金", "土", "日", "月", "火"];
   return a[dow];
 }
