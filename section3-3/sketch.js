@@ -15,6 +15,14 @@ function setup(){
 
 function calendar(y, m){
   let dow = dayOfWeek(y, m, 1);
+  let size = width / 7;
+  for(let i = 0; i < 7; i++){
+    for(let j = 0; j < 7; j++){
+      fill(25);
+      rect(size*i, size*j, size, size);
+      }
+    }
+  let x = 0;
   for(let d = 1; d <= daysInMonth(y, m); d++){
     // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
     textSize(5);
