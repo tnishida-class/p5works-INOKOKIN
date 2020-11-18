@@ -17,15 +17,16 @@ function calendar(y, m){
   let dow = dayOfWeek(y, m, 1);
   for(let d = 1; d <= daysInMonth(y, m); d++){
     // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
-    textSize(5);
-    textFont("serif");
-    text("d", dow*width+3, x*width+3);
-    if(dow=6){
-      x += 1;
+    pop();
+    let x = dayOfWeek(y, m, d);
+    let y = 0
+    rect(x*20, y*20, 20, 20);
+    if(x=6){
+      y += 1;
+      }
+    push();
     }
-  }
 }
-
 
 function isLeapYear(y){
   return (y % 4 == 0) && (y % 100 != 0) || (y % 400 == 0);
