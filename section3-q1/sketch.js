@@ -4,20 +4,21 @@
 function setup(){
   createCanvas(400, 400);
   background(255);
-  balloon("I love keyakizaka46");
+  balloon("I love piko_taro", 70, 70);
 }
 
-function balloon(t){
+function balloon(t, x, y){
   push();
   let w = textWidth(t);
   let h = textAscent() + textDescent();
   let p = 50;
   noStroke();
-  fill(150);
-  rect(50, 50, w + p * 2, h + p * 2);
+  fill(100);
+  rect(x, y, w + p * 2, h + p * 2);
   fill(0,0,255);
-  text(t, p + 50, h + p + 50);
-  fill(150);
-  triangle(w+p*2+50, h+p*2+50, w+p*2+50, h+p*2+75, w+p*2-25, h+p*2+50);
+  text(t, x + p, y + h + p);
+  fill(100);
+  triangle(w+p*2+x, h+p*2+y, w+p*2+x-30, h+p*2+y, w+p*2+x, h+p*2+y+50);
   pop();
 }
+//引数を利用して自由に吹き出しの位置を変えられるように変更しました。
