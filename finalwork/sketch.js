@@ -39,7 +39,9 @@ function draw(){
 function aircraft(){
   push();
   noStroke();
-  triangle(x, y, x + 40, y, x + 20, y - 30);
+  triangle(x, y, x+40, y, x+20, y-30);
+  triangle(x, y+10, x, y+20, x-15, y+20);
+  triangle(x+40, y+10, x+40, y+20, x+55, y+20);
   rect(x, y, 40, 20);
   if(keyIsDown(LEFT_ARROW)){x -= 4;}
   if(keyIsDown(RIGHT_ARROW)){x += 4;}
